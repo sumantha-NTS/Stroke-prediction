@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Stroke Prediction</title>
+</head>
+<style>
+      input[type=submit] {
+          background-color: #0066A2;
+          border-color: #0066A2;
+          border-style: outset;
+          color: white;
+          border: 1px solid #eee;
+          border-radius: 10px;
+          padding: 12px 25px;
+          font: bold 20px arial, sans-serif;
+          margin: 4px 2px;
+          cursor: pointer;
+      }
+      input[type="number"] {
+          font-family:courier;
+          height: 20px;
+          width: 190px;
+          border-radius: 10px;
+          text-align: center;
+      }
+      input[type="number"]::placeholder {
+          font-weight: lighter;
+          text-align: center;
+      }
+      body {
+            background: linear-gradient(#005aa7,#fffde4);
+              }
+      h1 {
+          color: white;
+          text-shadow: 1px 1px 2px red, 0 0 25px black;
+      }
+      select {
+           width: 200px;
+           text-align-last:center;
+           border-radius: 10px;
+           font-family:courier;
+           font-size:15px;
+           font-weight: bold;
+           height: 25px;
+      }
+    </style>
+<body style="text-align:center;">
+ <div>
+	<h1><u>Stroke Prediction</u></h1>
+     <h1 style="color:yellow;">{{x}}</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post" id="Home">
+
+        <label for="gender" style="font-size:130%;"><b>Gender:</b></label><br>
+        <select name="gender" id="gender" >
+            <option value=1>Male</option>
+            <option value=0>Female</option>
+        </select><br><br>
+
+        <label for="age" style="font-size:130%;"><b>Age:</b></label><br>
+        <input type="number" name="age" placeholder="Enter the value" required="required" /><br><br>
+
+        <label for="height" style="font-size:130%;"><b>Height in cm:</b></label><br>
+        <input type="number" name="height" placeholder="Enter the value" required="required" /><br><br>
+
+        <label for="weight" style="font-size:130%;"><b>Weight in kg:</b></label><br>
+        <input type="number" name="weight" placeholder="Enter the value" required="required" /><br><br>
+
+        <label for="hypertension" style="font-size:130%;"><b>Hypertension:</b></label><br>
+        <select name="hypertension" id="hypertension" >
+            <option value=1>Yes</option>
+            <option value=0>No</option>
+        </select><br><br>
+
+        <label for="married" style="font-size:130%;"><b>Married:</b></label><br>
+        <select name="married" id="married" >
+            <option value=1>Yes</option>
+            <option value=0>No</option>
+        </select><br><br>
+
+        <label for="work" style="font-size:130%;"><b>Work Type:</b></label><br>
+        <select name="work" id="work" >
+            <option value=0>Govt. Job</option>
+            <option value=2>Private Job</option>
+            <option value=3>Self Employed</option>
+            <option value=1>Never Worked</option>
+            <option value=4>Student</option>
+        </select><br><br>
+
+        <label for="residence" style="font-size:130%;"><b>Residence Type:</b></label><br>
+        <select name="residence" id="residence" >
+            <option value=0>Rural</option>
+            <option value=1>Urban</option>
+        </select><br><br>
+
+        <label for="glucose" style="font-size:130%;"><b>Average Glucose Level in Blood:</b></label><br>
+        <input type="number" name="glucose" placeholder="Enter the value" required="required" /><br><br>
+
+        <label for="smoke" style="font-size:130%;"><b>Smoking Status:</b></label><br>
+        <select name="smoke" id="smoke" >
+            <option value=0>Formerly Smoked</option>
+            <option value=1>Never Smoked</option>
+            <option value=2>Smokes</option>
+        </select><br><br>
+
+        <input type="submit" >
+    </form>
+ </div>
+
+</body>
+</html>
